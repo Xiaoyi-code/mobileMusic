@@ -18,7 +18,12 @@ export default {
   },
 }
 </script>
-<style lang="less">
+<style lang="less" >
+html,
+body {
+  height: 100%;
+}
+
 * {
   margin: 0;
   padding: 0;

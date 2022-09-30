@@ -16,7 +16,6 @@ export default {
 .header {
   width: 100%;
   height: 1rem;
-  background: rgb(8, 230, 145);
   display: flex;
   justify-content: space-between;
   align-items: center;

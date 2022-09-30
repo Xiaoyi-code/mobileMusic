@@ -8,37 +8,17 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
   //首页路由
   {
     path: '/home',
     name: 'HomeView',
     component: () => import(/* webpackChunkName: "HomeView" */ '../views/HomeView.vue')
   },
-  //排行榜路由
+  //歌手路由
   {
-    path: '/rank',
-    name: 'Rank',
-    component: () => import(/* webpackChunkName: "Rank" */ '../views/Rank.vue')
-  },
-  // 歌单详情路由
-  {
-    path: '/itemMusic',
-    name: 'ItemMusic',
-    component: () => import(/* webpackChunkName: "ItemMusic" */ '../views/ItemMusic.vue'),
-    props (route) {
-      // console.log(route)
-      return {
-        id: route.query.id,
-      }
-    }
+    path: '/singer',
+    name: 'SingerView',
+    component: () => import(/* webpackChunkName: "SingerView" */ '../views/SingerView.vue')
   },
   // 搜索歌曲页面路由
   {
@@ -59,14 +39,27 @@ const routes = [
     component: () => import(/* webpackChunkName: "InfoUser" */ '../views/InfoUser.vue'),
     beforeEnter: (to, from, next) => {
       // 登陆后才能进入个人中心页面
-      if (store.state.isLogin || store.state.token) {
+      if (store.state.isLogin || store.state.token || localStorage.getItem("token")) {
         next()
       } else {
         next('Login')
       }
     }
+  },
+  // 歌单详情路由
+  {
+    path: '/itemMusic',
+    name: 'ItemMusic',
+    component: () => import(/* webpackChunkName: "ItemMusic" */ '../views/ItemMusic.vue'),
+    props (route) {
+      // console.log(route)
+      return {
+        id: route.query.id,
+      }
+    }
   }
 ]
+
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

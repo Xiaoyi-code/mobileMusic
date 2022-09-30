@@ -35,6 +35,7 @@ export default {
 
 <style lang="less" scoped>
 .iconList {
+  // position: absolute;
   width: 100%;
   height: 2rem;
   margin-top: .2rem;

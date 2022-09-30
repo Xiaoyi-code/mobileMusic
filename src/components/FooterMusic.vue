@@ -1,24 +1,27 @@
 <template>
-  <div class="FooterMusic" v-show="firstFooterMusic && isFooterMusic">
-    <div class="footerLeft" @click="updateDetailShow">
-      <img :src="playList[playListIndex].al.picUrl" alt="" />
-      <div>
-        <p>{{ playList[playListIndex].name }}</p>
-        <span>横滑切换上下首哦</span>
+  <div class="FooterMusicVue" v-show="firstFooterMusic && isFooterMusic">
+    <div class="footerMusic">
+      <div class="footerLeft" @click="updateDetailShow">
+        <img :src="playList[playListIndex].al.picUrl" alt="" />
+        <div>
+          <p>{{ playList[playListIndex].name }}</p>
+          <span>横滑切换上下首哦</span>
+        </div>
       </div>
+      <div class="footerRight">
+        <svg class="icon liebiao" aria-hidden="true" @click="play" v-if="isbtnShow">
+          <use xlink:href="#icon-bofang"></use>
+        </svg>
+        <svg class="icon liebiao" aria-hidden="true" @click="play" v-else>
+          <use xlink:href="#icon-zanting"></use>
+        </svg>
+        <svg class="icon liebiao" aria-hidden="true">
+          <use xlink:href="#icon-liebiao"></use>
+        </svg>
+      </div>
+      <audio ref="audio"
+        :src="`https://music.163.com/song/media/outer/url?id=${playList[playListIndex].id}.mp3`"></audio>
     </div>
-    <div class="footerRight">
-      <svg class="icon liebiao" aria-hidden="true" @click="play" v-if="isbtnShow">
-        <use xlink:href="#icon-bofang"></use>
-      </svg>
-      <svg class="icon liebiao" aria-hidden="true" @click="play" v-else>
-        <use xlink:href="#icon-zanting"></use>
-      </svg>
-      <svg class="icon liebiao" aria-hidden="true">
-        <use xlink:href="#icon-liebiao"></use>
-      </svg>
-    </div>
-    <audio ref="audio" :src="`https://music.163.com/song/media/outer/url?id=${playList[playListIndex].id}.mp3`"></audio>
     <van-popup v-model:show="isDetailShow" position="bottom" :style="{ height: '100%' }">
       <MusicDetailVue :musicList="playList[playListIndex]" :play="play" :isbtnShow="isbtnShow"
         :updataAllTime="updataAllTime" />
@@ -109,41 +112,45 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.FooterMusic {
-  width: 100%;
-  height: 1.4rem;
-  background-color: #fff;
-  position: fixed;
-  bottom: 0;
-  border-top: 1px solid #999;
-  display: flex;
-  padding: 0.2rem;
-  justify-content: space-between;
+.FooterMusicVue {
+  position: relative;
 
-  .footerLeft {
-    width: 60%;
-    height: 100%;
+  .footerMusic {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 1.4rem;
+    background-color: #fff;
+    border-top: 1px solid #999;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    img {
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-    }
-  }
-
-  .footerRight {
-    width: 20%;
-    height: 100%;
-    display: flex;
+    padding: 0.2rem;
     justify-content: space-between;
-    align-items: center;
 
-    .icon {
-      width: 0.6rem;
-      height: 0.6rem;
+    .footerLeft {
+      width: 60%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      img {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+      }
+    }
+
+    .footerRight {
+      width: 20%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .icon {
+        width: 0.6rem;
+        height: 0.6rem;
+      }
     }
   }
 }

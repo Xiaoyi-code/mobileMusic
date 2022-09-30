@@ -1,33 +1,16 @@
 <template>
   <div class="topNav">
-    <!-- <div class="topleft">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-31liebiao"></use>
-      </svg>
+    <div class="nav">
+      <router-link tag="div" class="item" to="/">
+        <span>推荐</span>
+      </router-link>
+      <router-link tag="div" class="item" to="/singer">
+        <span>歌手</span>
+      </router-link>
+      <router-link tag="div" class="item" to="/search">
+        <span>搜索</span>
+      </router-link>
     </div>
-    <div class="topContent">
-      <span @click="$router.push('/InfoUser')">我的</span>
-      <span class="active">发现</span>
-      <span>云村</span>
-      <span>视频</span>
-    </div>
-    <div class="topRight">
-      <svg class="icon" aria-hidden="true" @click="$router.push('/search')">
-        <use xlink:href="#icon-sousuo"></use>
-      </svg>
-    </div> -->
-    <router-link tag="div" class="item" to="/InfoUser">
-      <span>我的</span>
-    </router-link>
-    <router-link tag="div" class="item" to="/">
-      <span>发现</span>
-    </router-link>
-    <router-link tag="div" class="item" to="/rank">
-      <span>排行</span>
-    </router-link>
-    <router-link tag="div" class="item" to="/search">
-      <span>搜索</span>
-    </router-link>
   </div>
 
 </template>
@@ -40,29 +23,37 @@ export default {
 
 <style lang="less" scoped>
 .topNav {
+  position: fixed;
+  z-index: 10;
+  top: 1rem;
   width: 100%;
   height: 1rem;
-  padding: .2rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 10;
 
-  .topContent {
-    width: 65%;
-    height: 100%;
+  .nav {
     display: flex;
+    height: 100%;
     justify-content: space-around;
-    // align-items: center;
-    font-size: .36rem;
+    align-items: center;
+    background: rgb(239, 245, 247);
 
-    .active {
-      font-weight: 900;
+    .item {
+      padding: .1rem;
+
+      span {
+        color: #666;
+      }
+
+      &.router-link-active {
+        span {
+          color: red;
+          font-weight: bold;
+
+        }
+
+        border-bottom: .03rem solid red;
+      }
     }
-  }
 
-  span {
-    color: #666;
   }
 }
 </style>

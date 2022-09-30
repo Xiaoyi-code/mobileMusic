@@ -26,6 +26,10 @@ export default createStore({
     firstFooterMusic: false,//首次不显示底部播放器
     token: "",
     user: {},//用户信息
+    myUser: {
+      myName: "",
+      myPhoto: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi.qqkou.com%2Fi%2F2a172641896x452126958b26.jpg&refer=http%3A%2F%2Fi.qqkou.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1667046408&t=29d1fc630fcc77ac13ebedc106d7a7f9"
+    },//用户名和用户图像
   },
   getters: {
   },
@@ -84,11 +88,19 @@ export default createStore({
     updateToken: function (state, value) {
       state.token = value
       localStorage.setItem('token', state.token)
+      // 
     },
     // 保留用户的信息（用户名和图像）
     updateUser: function (state, value) {
       state.user = value
-    }
+      state.myUser.myName = value.data.profile.nickname
+      state.myUser.myPhoto = value.data.profile.avatarUrl
+      localStorage.setItem('myUser', JSON.stringify(state.myUser))
+    },
+    //更新用户名和图像
+    updateMyUser: function (state, value) {
+      state.myUser = value
+    },
   },
   actions: {
     //获取歌词是异步请求，要在actions里处理

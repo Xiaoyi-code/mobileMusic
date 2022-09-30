@@ -8,7 +8,7 @@
       <van-swipe :loop="false" :width="130" :show-indicators="false" class="my-swiper">
         <van-swipe-item v-for="item in musicList" :key="item">
           <router-link :to="{name:'ItemMusic',query:{id:item.id}}">
-            <img :src="item.picUrl" alt="" />
+            <img v-lazy="item.picUrl" alt="" />
             <span class="playCount">
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-bofang4"></use>

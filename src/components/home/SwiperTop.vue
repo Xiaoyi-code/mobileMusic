@@ -3,6 +3,7 @@
     <van-swipe :autoplay="3000" lazy-render>
       <van-swipe-item v-for="image in state.images" :key="image">
         <img :src="image.pic" />
+        <img v-lazy="image.pic" />
       </van-swipe-item>
     </van-swipe>
   </div>
@@ -24,20 +25,14 @@ export default {
     }
   },
   mounted () {
-    // axios.get('http://localhost:3000/banner?type=2')
-    //   .then((res) => {
-    //     // console.log(res.data.banners)
-    //     this.state.images = res.data.banners
-    //   })
-
     let res = getBanner();
     res
       .then((res) => {
-        // console.log(res)
         this.state.images = res.data.banners
+        // console.log("请求轮播图成功！", res)
       })
-      .catch(() => {
-        console.log('获取轮播图信息失败！')
+      .catch((message) => {
+        console.log('请求轮播图失败！', message)
       })
 
   }
@@ -46,8 +41,8 @@ export default {
 
 <style lang="less" scoped>
 .swiperTop {
+  width: 100%;
 
-  /* 需要在上面自己添加一个id */
   .van-swipe {
     width: 100%;
     height: 3rem;
@@ -60,10 +55,6 @@ export default {
         height: 100%;
         border-radius: 0.2rem;
       }
-    }
-
-    .van-swipe__indicator--active {
-      background-color: rgb(219, 130, 130);
     }
   }
 }

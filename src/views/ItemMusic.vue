@@ -63,5 +63,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.itemMusic {}
+.itemMusic {
+  position: absolute;
+  top: 2rem;
+  width: 100%;
+}
 </style>

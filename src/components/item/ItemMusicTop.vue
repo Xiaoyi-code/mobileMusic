@@ -92,8 +92,6 @@ export default {
 
 <style lang="less" scoped>
 .itemMusicTop {
-  // position: absolute;
-
   .itemTop {
     width: 100%;
     height: 1rem;
@@ -124,7 +122,8 @@ export default {
 
     .bgimg {
       width: 100%;
-      height: 11rem;
+      // height: 11rem;
+      height: 100%;
       position: absolute;
       z-index: -1;
       filter: blur(30px);
