@@ -1,8 +1,14 @@
 <template>
   <div class="home">
-    <SwiperTopVue />
-    <IconListVue />
-    <MusicListVue />
+    <div class="home-wrapper">
+      <ScrollView>
+        <div>
+          <SwiperTopVue />
+          <IconListVue />
+          <MusicListVue />
+        </div>
+      </ScrollView>
+    </div>
   </div>
 </template>
 
@@ -11,19 +17,34 @@
 import SwiperTopVue from "@/components/home/SwiperTop.vue";
 import IconListVue from "@/components/home/IconList.vue";
 import MusicListVue from "@/components/home/MusicList.vue";
+import ScrollView from '@/components/ScrollView.vue'
 export default {
   name: 'HomeView',
   components: {
     SwiperTopVue,
     IconListVue,
-    MusicListVue
+    MusicListVue,
+    ScrollView
   }
 }
 </script>
 <style lang="less" scoped>
+// .home {
+//   position: absolute;
+//   top: 2rem;
+//   width: 100%;
+// }
 .home {
-  position: absolute;
+  position: fixed;
   top: 2rem;
-  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .home-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 }
 </style>

@@ -4,8 +4,8 @@
       <router-link tag="div" class="item" to="/">
         <span>推荐</span>
       </router-link>
-      <router-link tag="div" class="item" to="/singer">
-        <span>歌手</span>
+      <router-link tag="div" class="item" to="/rank">
+        <span>排行</span>
       </router-link>
       <router-link tag="div" class="item" to="/search">
         <span>搜索</span>

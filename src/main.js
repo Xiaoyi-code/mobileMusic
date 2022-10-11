@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import './assets/css/base.less'
+
 // // 引入vant3里button组件
 // import { Button } from 'vant';
 import { Lazyload } from 'vant'

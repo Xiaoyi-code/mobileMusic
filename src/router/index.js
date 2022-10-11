@@ -14,11 +14,11 @@ const routes = [
     name: 'HomeView',
     component: () => import(/* webpackChunkName: "HomeView" */ '../views/HomeView.vue')
   },
-  //歌手路由
+  //排行榜路由
   {
-    path: '/singer',
-    name: 'SingerView',
-    component: () => import(/* webpackChunkName: "SingerView" */ '../views/SingerView.vue')
+    path: '/rank',
+    name: 'Rank',
+    component: () => import(/* webpackChunkName: "Rank" */ '../views/Rank.vue')
   },
   // 搜索歌曲页面路由
   {
