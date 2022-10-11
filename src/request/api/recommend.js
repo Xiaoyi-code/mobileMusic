@@ -16,7 +16,7 @@ export const getBanner = () => service({
 export function getMusicList () {
   return service({
     method: "GET",
-    url: "/personalized?limit=10",
+    url: "/personalized?limit=9",
   })
 }
 //搜索

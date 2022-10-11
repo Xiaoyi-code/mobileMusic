@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import { getMusicLyric } from '@/request/api/item.js'
-import { getPhoneLogin } from '@/request/api/home.js'
+import { getPhoneLogin } from '@/request/api/recommend.js'
 export default createStore({
   state: {
     playList: [{ //播放列表
@@ -100,6 +100,16 @@ export default createStore({
     //更新用户名和图像
     updateMyUser: function (state, value) {
       state.myUser = value
+    },
+    //删除用户名和图像，同时删除token值，登陆状态
+    deleteMyUser: function (state, value) {
+      state.isLogin = false
+      state.token = ""
+      localStorage.removeItem("token")
+      localStorage.removeItem("myUser")
+      state.user = {}
+      state.myUser.myName = ""
+      state.myUser.myPhoto = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi.qqkou.com%2Fi%2F2a172641896x452126958b26.jpg&refer=http%3A%2F%2Fi.qqkou.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1667046408&t=29d1fc630fcc77ac13ebedc106d7a7f9"
     },
   },
   actions: {

@@ -1,18 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import RecommendView from '../views/Recommend.vue'
 import store from '@/store/index.js'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'recommend',
+    component: RecommendView
   },
   //首页路由
   {
-    path: '/home',
-    name: 'HomeView',
-    component: () => import(/* webpackChunkName: "HomeView" */ '../views/HomeView.vue')
+    path: '/recommend',
+    name: 'Recommend',
+    component: () => import(/* webpackChunkName: "Recommend" */ '../views/Recommend.vue')
   },
   //排行榜路由
   {

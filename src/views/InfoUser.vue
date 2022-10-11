@@ -1,8 +1,9 @@
 <template>
   <div class="infoUser">
-    <!-- <img :src="user.data.profile.avatarUrl" alt="" class="profileimg" /> -->
+    <img :src="myUser.myPhoto" alt="" class="bgimg">
     <img :src="myUser.myPhoto" alt="" class="profileimg" />
     <div class="name">{{ myUser.myName }}</div>
+    <van-button type="danger" size="normal" @click="exit" class="btn">退出登录</van-button>
   </div>
 </template>
 
@@ -13,7 +14,11 @@ export default {
     ...mapState(["myUser"]),
   },
   methods: {
-    ...mapMutations(["updateMyUser"])
+    ...mapMutations(["updateMyUser", "deleteMyUser"]),
+    exit () {
+      this.deleteMyUser()
+      this.$router.push('/login')
+    }
   },
   mounted () {
     let localUser = localStorage.getItem("myUser") ? localStorage.getItem("myUser") : JSON.stringify(this.myUser)
@@ -28,23 +33,33 @@ export default {
   top: 2rem;
   width: 100%;
   height: 100%;
-  padding-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: space-around;
-  background-color: rgb(18, 198, 204);
+
+  .bgimg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    filter: blur(10px);
+  }
 
   .profileimg {
-    width: 1rem;
-    height: 1rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
-    margin: 0 auto;
+    margin: 1rem auto;
   }
 
   .name {
     font-weight: 700;
     font-size: .4rem;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 5rem;
   }
 }
 </style>

@@ -11,7 +11,7 @@
 
 <script>
 import axios from "axios"
-import { getBanner } from "@/request/api/home.js"
+import { getBanner } from "@/request/api/recommend.js"
 import { reactive, onMounted } from "vue";
 export default {
   data () {

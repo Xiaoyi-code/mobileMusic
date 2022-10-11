@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
+import VConsole from "vconsole"
 import './assets/css/base.less'
 
 // // 引入vant3里button组件
@@ -20,6 +20,8 @@ app.use(router).mount('#app')
 app.use(Lazyload, {
   lazyComponent: true,
   // 可以通过配置loading来设置图片还未加载好之前的占位图片
-  loading: require('./assets/loading.png')
+  loading: require('./assets/image/log.gif')
 });
 
+const vconsole = new VConsole()
+app.use(vconsole)

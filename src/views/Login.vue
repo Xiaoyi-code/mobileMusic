@@ -1,18 +1,21 @@
 <template>
   <div class="login">
+    <!-- <label>Date:<input type="text"/></label> -->
     <div class="loginSub">
       <div class="loginTop">欢迎登录</div>
       <div class="loginContent">
-        <input type="text" name="phone" class="phone" v-model="phone" placeholder="请输入手机号码" />
-        <input type="password" name="passworld" class="passworld" v-model="password" placeholder="请输入密码" />
-        <button class="btn" @click="Login">登录</button>
+        <van-cell-group>
+          <van-field v-model="phone" type="tel" label="手机号" placeholder="请输入手机号" />
+          <van-field v-model="password" type="password" label="密码" placeholder="请输入密码" />
+        </van-cell-group>
+        <van-button type="primary" size="normal" @click="Login">登录</van-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { getLoginUser } from '@/request/api/home.js'
+import { getLoginUser } from '@/request/api/recommend'
 import { mapActions, mapMutations } from "vuex"
 export default {
   data () {
@@ -49,7 +52,7 @@ export default {
   top: 2rem;
   width: 100%;
   height: 100%;
-  background-color: rgb(18, 198, 204);
+  background-color: rgb(155, 212, 214);
 
   .loginSub {
     padding: 0.2rem;
@@ -66,26 +69,12 @@ export default {
     }
 
     .loginContent {
-      // flex: 1;
       width: 100%;
       height: 30%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
-      // margin-top: 2rem;
-
-      .phone,
-      .passworld {
-        width: 5rem;
-        height: 1rem;
-        border: 0.02rem solid #999;
-      }
-
-      .btn {
-        width: 2rem;
-        height: .6rem;
-      }
     }
   }
 }

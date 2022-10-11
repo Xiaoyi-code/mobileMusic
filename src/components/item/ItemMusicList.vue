@@ -55,9 +55,7 @@ export default {
 
 <style lang="less" scoped>
 .itemMusicList {
-  // position: absolute;
   width: 100%;
-  height: 10rem;
   background-color: #fff;
   padding: 0 0.2rem;
   margin-top: 0.2rem;
@@ -179,5 +177,6 @@ export default {
       }
     }
   }
+
 }
 </style>

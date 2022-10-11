@@ -1,7 +1,13 @@
 <template>
   <div class="itemMusic">
-    <ItemMusicTop :playlist="state.playlist" :creator="creator" />
-    <ItemMusicListVue :itemList="state.itemList" :subscribedCount="state.playlist.subscribedCount" />
+    <div class="itemMusic-wrapper">
+      <ScrollView>
+        <div>
+          <ItemMusicTop :playlist="state.playlist" :creator="creator" />
+          <ItemMusicListVue :itemList="state.itemList" :subscribedCount="state.playlist.subscribedCount" />
+        </div>
+      </ScrollView>
+    </div>
   </div>
 </template>
 
@@ -9,10 +15,12 @@
 import { getMusicItemdetail, getMusicItemList } from "@/request/api/item";
 import ItemMusicTop from "@/components/item/ItemMusicTop.vue"
 import ItemMusicListVue from "@/components/item/ItemMusicList.vue";
+import ScrollView from '@/components/ScrollView.vue'
 export default {
   components: {
     ItemMusicTop,
-    ItemMusicListVue
+    ItemMusicListVue,
+    ScrollView
   },
   data () {
     return {
@@ -52,9 +60,6 @@ export default {
       })
     }
   },
-  // created () {
-  //   this.getMusicItemdetail(this.id)
-  // },
   mounted () {
     this.getMusicItemdetail(this.id)
     this.getMusicItemList(this.id)
@@ -64,8 +69,16 @@ export default {
 
 <style lang="less" scoped>
 .itemMusic {
-  position: absolute;
+  position: fixed;
   top: 2rem;
-  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .itemMusic-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
 }
 </style>

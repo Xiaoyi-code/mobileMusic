@@ -22,7 +22,7 @@
         <img :src="playlist.coverImgUrl" alt="" />
         <div class="palyCount">
           <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-bofang4"></use>
+            <use xlink:href="#icon-erji-copy"></use>
           </svg>
           <span>{{ changeCount(playlist.playCount) }}</span>
         </div>
@@ -122,7 +122,6 @@ export default {
 
     .bgimg {
       width: 100%;
-      // height: 11rem;
       height: 100%;
       position: absolute;
       z-index: -1;

@@ -26,7 +26,6 @@
       <MusicDetailVue :musicList="playList[playListIndex]" :play="play" :isbtnShow="isbtnShow"
         :updataAllTime="updataAllTime" />
     </van-popup>
-
   </div>
 </template>
 
@@ -82,6 +81,7 @@ export default {
   },
   watch: {
     isbtnShow: function (news, olds) {
+
       if (news) {
         //监控播放/暂停图标的状态来设置音乐的播放，暂停图标为true，播放为false
         this.$refs.audio.pause()
@@ -95,9 +95,12 @@ export default {
       } else if (!this.$refs.audio.autoplay) {
         //如果是播放图标且当前不是自动播放状态，则用autoplay
         this.$refs.audio.autoplay = true
+        this.$refs.audio.play()
         //播放就调用函数
         this.updateTime()
         // console.log('现在为播放用autoplay', 'news:', news, 'olds:', olds)
+        // console.log("autoplay:", this.$refs.audio.autoplay)
+
       }
     },
     //当底部的歌曲列表更新或者歌曲索引变化后都要请求当前歌的歌词

@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { getSearchMusic } from "@/request/api/home.js"
+import { getSearchMusic } from "@/request/api/recommend"
 import { mapMutations, mapState } from 'vuex'
 import ScrollView from '@/components/ScrollView.vue'
 export default {
