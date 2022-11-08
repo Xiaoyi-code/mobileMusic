@@ -28,7 +28,7 @@ export default createStore({
     user: {},//用户信息
     myUser: {
       myName: "",
-      myPhoto: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi.qqkou.com%2Fi%2F2a172641896x452126958b26.jpg&refer=http%3A%2F%2Fi.qqkou.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1667046408&t=29d1fc630fcc77ac13ebedc106d7a7f9"
+      myPhoto: require("../assets/image/defuatl.webp") //不加require ，图片被浏览器识别成了 text，而不是 jpg格式，所以显示不出来     解决方法：用 require() 方法，直接传入图片编码
     },//用户名和用户图像
   },
   getters: {
@@ -109,7 +109,7 @@ export default createStore({
       localStorage.removeItem("myUser")
       state.user = {}
       state.myUser.myName = ""
-      state.myUser.myPhoto = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi.qqkou.com%2Fi%2F2a172641896x452126958b26.jpg&refer=http%3A%2F%2Fi.qqkou.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1667046408&t=29d1fc630fcc77ac13ebedc106d7a7f9"
+      state.myUser.myPhoto = require("../assets/image/defuatl.webp")
     },
   },
   actions: {

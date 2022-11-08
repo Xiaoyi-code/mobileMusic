@@ -3,6 +3,7 @@
     <HeaderVue>
       <template v-slot:left>
         <div class="header-left">
+          <!-- <img :src="myUser.myPhoto" alt="" @click="$router.push('\infoUser')" /> -->
           <img :src="myUser.myPhoto" alt="" @click="$router.push('\infoUser')" />
         </div>
       </template>

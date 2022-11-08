@@ -12,11 +12,6 @@ export default {
       mouseWheel: true,
       scrollbars: true
     })
-    // setTimeout(() => {
-    //   console.log(this.iscroll.maxScrollY)
-    //   this.iscroll.refresh()
-    //   console.log(this.iscroll.maxScrollY)
-    // }, 3000)
     // 1.创建一个观察者对象
     /*
     MutationObserver构造函数只要监听到了指定内容发生了变化, 就会执行传入的回调函数
